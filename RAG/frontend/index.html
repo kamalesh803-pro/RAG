@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="RAG Web Application — ask questions about your documents using AI powered by FAISS and Ollama." />
+    <title>RAG — Chat with Your Documents</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<div class="app-container">
+
+    <!-- ═══════ SIDEBAR ═══════ -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">🧠</div>
+            <div>
+                <h1>RAG Assistant</h1>
+                <p>Chat with your documents</p>
+            </div>
+        </div>
+
+        <span class="section-title">Upload Document</span>
+
+        <div class="upload-zone" id="upload-zone">
+            <input type="file" id="file-input" accept=".pdf,.txt" />
+            <div class="upload-icon">📁</div>
+            <h3>Drag & drop or click</h3>
+            <p>Supports PDF and TXT files</p>
+        </div>
+
+        <button class="upload-btn" id="upload-btn" disabled>Upload &amp; Index</button>
+
+        <div id="notification" class="notification"></div>
+
+        <span class="section-title">Indexed Documents</span>
+        <div class="file-list" id="file-list"></div>
+
+        <button class="clear-btn" id="clear-btn">🗑️  Clear All Data</button>
+    </aside>
+
+    <!-- ═══════ CHAT PANEL ═══════ -->
+    <main class="chat-panel">
+
+        <header class="chat-header">
+            <div class="status-dot"></div>
+            <h2>Chat</h2>
+            <span>Powered by Llama 3.2 via Ollama</span>
+        </header>
+
+        <div class="chat-messages" id="chat-messages">
+            <div class="welcome" id="welcome-screen">
+                <div class="welcome-icon">💬</div>
+                <h2>Ask anything about your documents</h2>
+                <p>Upload a PDF or TXT file using the panel on the left, then type a question below. The AI will answer based only on the content of your documents.</p>
+            </div>
+        </div>
+
+        <div class="chat-input-bar">
+            <div class="input-wrapper">
+                <input
+                    type="text"
+                    id="question-input"
+                    placeholder="Type your question…"
+                    autocomplete="off"
+                />
+                <button class="send-btn" id="send-btn" title="Send">▶</button>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script src="/static/script.js?v=2"></script>
+</body>
+</html>
